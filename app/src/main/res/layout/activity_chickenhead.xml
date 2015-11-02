@@ -90,7 +90,7 @@
         android:textOff="Manually"
         android:id="@+id/switch1"
         android:layout_marginTop="31dp"
-        android:checked="false"
+        android:checked="true"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
 

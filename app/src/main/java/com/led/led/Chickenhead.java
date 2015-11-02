@@ -28,6 +28,7 @@ public class Chickenhead extends ActionBarActivity {
     SeekBar vertikal;
     TextView lumn;
     String address = null;
+
     private ProgressDialog progress;
     BluetoothAdapter myBluetooth = null;
     BluetoothSocket btSocket = null;
