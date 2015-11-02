@@ -33,34 +33,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="horizontal:"
         android:id="@+id/textView3"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ON"
-        android:id="@+id/button2"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/switch1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/seekBar"
-        android:layout_alignEnd="@+id/seekBar" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OFF"
-        android:id="@+id/button3"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_marginTop="57dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,8 +65,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="vertikal:"
         android:id="@+id/textView4"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/seekBar"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -99,11 +74,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekBar2"
         android:progress="0"
-        android:max="86"
+        android:max="93"
         android:indeterminate="false"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/seekBar"
         android:layout_alignEnd="@+id/seekBar" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mode:"
+        android:textOn="Gyro"
+        android:textOff="Manually"
+        android:id="@+id/switch1"
+        android:layout_marginTop="31dp"
+        android:checked="false"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

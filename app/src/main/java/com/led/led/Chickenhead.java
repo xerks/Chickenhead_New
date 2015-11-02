@@ -23,7 +23,7 @@ import java.util.UUID;
 
 public class Chickenhead extends ActionBarActivity {
 
-    Button btnOn, btnOff, btnDis;
+    Button btnDis;
     SeekBar horizontal;
     SeekBar vertikal;
     TextView lumn;
@@ -47,32 +47,12 @@ public class Chickenhead extends ActionBarActivity {
         setContentView(R.layout.activity_chickenhead);
 
         //call the widgtes
-        btnOn = (Button)findViewById(R.id.button2);
-        btnOff = (Button)findViewById(R.id.button3);
         btnDis = (Button)findViewById(R.id.button4);
         horizontal = (SeekBar)findViewById(R.id.seekBar);
         vertikal = (SeekBar)findViewById(R.id.seekBar2);
         lumn = (TextView)findViewById(R.id.lumn);
 
         new ConnectBT().execute(); //Call the class to connect
-
-        //commands to be sent to bluetooth
-        btnOn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                turnOnLed();      //method to turn on
-            }
-        });
-
-        btnOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                turnOffLed();   //method to turn off
-            }
-        });
 
         btnDis.setOnClickListener(new View.OnClickListener()
         {
@@ -116,7 +96,7 @@ public class Chickenhead extends ActionBarActivity {
 
                     try
                     {
-                        btSocket.getOutputStream().write((String.valueOf(progress+1000)).getBytes());
+                        btSocket.getOutputStream().write((String.valueOf(progress+1086)).getBytes());
                     }
                     catch (IOException e)
                     {
