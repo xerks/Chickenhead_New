@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
@@ -26,6 +27,7 @@ public class Chickenhead extends ActionBarActivity {
     Button btnDis;
     SeekBar horizontal;
     SeekBar vertikal;
+    Switch btonoff;
     TextView lumn;
     String address = null;
 
@@ -51,15 +53,15 @@ public class Chickenhead extends ActionBarActivity {
         btnDis = (Button)findViewById(R.id.button4);
         horizontal = (SeekBar)findViewById(R.id.seekBar);
         vertikal = (SeekBar)findViewById(R.id.seekBar2);
+        btonoff = (Switch)findViewById(R.id.switch1);
+
         lumn = (TextView)findViewById(R.id.lumn);
 
         new ConnectBT().execute(); //Call the class to connect
 
-        btnDis.setOnClickListener(new View.OnClickListener()
-        {
+        btnDis.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Disconnect(); //close connection
             }
         });
@@ -116,6 +118,8 @@ public class Chickenhead extends ActionBarActivity {
 
             }
         });
+
+          //btonoff
     }
 
     private void Disconnect()
@@ -131,36 +135,6 @@ public class Chickenhead extends ActionBarActivity {
         }
         finish(); //return to the first layout
 
-    }
-
-    private void turnOffLed()
-    {
-        if (btSocket!=null)
-        {
-            try
-            {
-                btSocket.getOutputStream().write("TF".toString().getBytes());
-            }
-            catch (IOException e)
-            {
-                msg("Error");
-            }
-        }
-    }
-
-    private void turnOnLed()
-    {
-        if (btSocket!=null)
-        {
-            try
-            {
-                btSocket.getOutputStream().write("TO".toString().getBytes());
-            }
-            catch (IOException e)
-            {
-                msg("Error");
-            }
-        }
     }
 
     // fast way to call Toast
