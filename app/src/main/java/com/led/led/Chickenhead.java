@@ -126,7 +126,6 @@ public class Chickenhead extends ActionBarActivity {
                       horizontal.setEnabled(false);
 
                       try {
-                          btSocket.getOutputStream().write((String.valueOf(1086)).getBytes());
                           btSocket.getOutputStream().write((String.valueOf(-100000)).getBytes());
                       } catch (IOException e) {
 
