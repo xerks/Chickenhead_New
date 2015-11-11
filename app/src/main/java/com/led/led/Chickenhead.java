@@ -31,7 +31,6 @@ public class Chickenhead extends ActionBarActivity {
     SeekBar horizontal;
     SeekBar vertikal;
     Switch btonoff;
-    TextView lumn;
     String address = null;
 
     private ProgressDialog progress;
@@ -58,8 +57,6 @@ public class Chickenhead extends ActionBarActivity {
         vertikal = (SeekBar)findViewById(R.id.seekBar2);
         btonoff = (Switch)findViewById(R.id.switch1);
 
-        lumn = (TextView)findViewById(R.id.lumn);
-
         new ConnectBT().execute(); //Call the class to connect
 
         btnDis.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +71,7 @@ public class Chickenhead extends ActionBarActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress1, boolean fromUser) {
                 if (fromUser) {
-                    //lumn.setText(String.valueOf(progress));
                     try {
-                        btSocket.getOutputStream().write((String.valueOf(0)).getBytes());
                         btSocket.getOutputStream().write(String.valueOf(progress1).getBytes());
                     } catch (IOException e) {
 
@@ -99,10 +94,8 @@ public class Chickenhead extends ActionBarActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress2, boolean fromUser) {
                 if (fromUser) {
-                    //lumn.setText(String.valueOf(progress));
 
                     try {
-                        btSocket.getOutputStream().write((String.valueOf(1086)).getBytes());
                         btSocket.getOutputStream().write((String.valueOf(progress2 + 1086)).getBytes());
                     } catch (IOException e) {
 
@@ -129,19 +122,20 @@ public class Chickenhead extends ActionBarActivity {
 
                   if(isChecked){
 
-                      vertikal.setActivated(false);
-                      horizontal.setActivated(false);
+                      vertikal.setEnabled(false);
+                      horizontal.setEnabled(false);
 
                       try {
+                          btSocket.getOutputStream().write((String.valueOf(1086)).getBytes());
                           btSocket.getOutputStream().write((String.valueOf(-100000)).getBytes());
                       } catch (IOException e) {
 
                       }
 
-                  }else{
+                  }else {
 
-                      vertikal.setActivated(true);
-                      horizontal.setActivated(true);
+                      vertikal.setEnabled(true);
+                      horizontal.setEnabled(true);
                   }
               }
           });
