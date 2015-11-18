@@ -135,6 +135,13 @@ public class Chickenhead extends ActionBarActivity {
 
                       vertikal.setEnabled(true);
                       horizontal.setEnabled(true);
+
+                    /*  try {
+                         btSocket.getOutputStream().write(String.valueOf(horizontal.getProgress()).getBytes());
+                      } catch (IOException e) {
+
+                      }
+                    */
                   }
               }
           });
